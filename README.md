@@ -5,6 +5,7 @@
 #### Audio by courtesy of [fuhton/piano-mp3](https://github.com/fuhton/piano-mp3).
 
 ### Usage:
+You will need ffmpeg (ffplay) and bc (Basic Calculator) installed on your system.
 You provide notes as an argument, one after another without spaces. Underscore means tenuto, so holding a note for another 16th.
 ```sh
 ./synth.sh C3__E3G3
