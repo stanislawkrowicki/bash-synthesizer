@@ -6,11 +6,14 @@
 
 ### Usage:
 You will need ffmpeg (ffplay) and bc (Basic Calculator) installed on your system.
+"Usage: ./synth.sh [-t tempo] [melody]"
 You provide notes as an argument, one after another without spaces. Underscore means tenuto, so holding a note for another 16th.
 ```sh
 ./synth.sh C3__E3G3
 ```
+If you do not provide tempo, default 100 bpm is used.
 
 Both b (flat) and # (sharp) are supported. Remember, that to use # you will have to enclose your sequence of notes in quotation marks.
 ```sh
 ./synth.sh "D4_F#4_Ab5_A5"
+```

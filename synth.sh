@@ -1,13 +1,23 @@
 #!/bin/bash
 
+tempo=100
+
+while getopts "t:" flag
+do
+    case "${flag}" in
+        t) tempo=${OPTARG}; shift 2 ;;
+        *) echo "Usage: $0 [-t tempo] [melody]"; exit 1 ;;
+    esac
+done
+
+time_per_note=$(echo "60 / $tempo" | bc -l)
 melody=$1 
 melody_length=${#melody}
-tempo=$2
-time_per_note=$(echo "60 / $tempo" | bc -l)
 
 i=0
 
-while true; do 
+while true
+do 
     substring=${melody:$i:3}
     
     if [[ $substring =~ ^[A-G]b[0-8]$ ]]; then
