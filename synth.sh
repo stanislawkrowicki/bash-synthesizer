@@ -1,14 +1,18 @@
 #!/bin/bash
 
 tempo=100
+loop=false 
 
-while getopts "t:" flag
+while getopts "t:l" flag
 do
     case "${flag}" in
-        t) tempo=${OPTARG}; shift 2 ;;
-        *) echo "Usage: $0 [-t tempo] [melody]"; exit 1 ;;
+        t) tempo=${OPTARG} ;;
+        l) loop=true ;;
+        *) echo "Usage: $0 [-t tempo] [-l] [melody]"; exit 1 ;;
     esac
 done
+
+shift $((OPTIND-1))
 
 time_per_note=$(echo "60 / $tempo" | bc -l)
 melody=$1 
@@ -70,6 +74,10 @@ do
     fi
 
     if [[ $i -ge melody_length ]]; then
-        break
+        if [[ $loop = true ]]; then 
+            i=0
+        else
+            break
+        fi
     fi
 done

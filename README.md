@@ -6,7 +6,7 @@
 
 ### Usage:
 You will need ffmpeg (ffplay) and bc (Basic Calculator) installed on your system.
-"Usage: ./synth.sh [-t tempo] [melody]"
+"Usage: ./synth.sh [-t tempo] [-l] [melody]"
 You provide notes as an argument, one after another without spaces. Underscore means tenuto, so holding a note for another 16th.
 ```sh
 ./synth.sh C3__E3G3
